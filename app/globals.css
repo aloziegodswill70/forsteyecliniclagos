@@ -1,49 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  /* =====================================================
+     FORST EYE CLINIC OFFICIAL BRAND PALETTE
+     Extracted from Logo
+  ===================================================== */
+
+  /* =====================================================
+     PRIMARY ORANGE
+     Official Logo Orange
+  ===================================================== */
+
+  --primary-50: #FFF8F5;
+  --primary-100: #FFF1EB;
+  --primary-200: #FFE0D2;
+  --primary-300: #FFC2AA;
+  --primary-400: #FF9A72;
+  --primary-500: #FF7645;
+  --primary-600: #F15A29;   /* OFFICIAL LOGO COLOR */
+  --primary-700: #DD461D;
+  --primary-800: #BE3617;
+  --primary-900: #992A13;
+  --primary-950: #651609;
+
+  /* =====================================================
+     SECONDARY GOLD
+  ===================================================== */
+
+  --secondary-50: #FFFDF7;
+  --secondary-100: #FFF9E3;
+  --secondary-200: #FFF2B7;
+  --secondary-300: #F7E66F;
+  --secondary-400: #E8D83A;
+  --secondary-500: #D4CE1E;
+  --secondary-600: #BCB617;
+  --secondary-700: #9B9512;
+  --secondary-800: #7B7610;
+  --secondary-900: #5D590C;
+  --secondary-950: #393505;
+
+  /* =====================================================
+     BRAND VARIABLES
+  ===================================================== */
+
+  --primary: var(--primary-600);
+  --primary-light: var(--primary-500);
+  --primary-dark: var(--primary-700);
+
+  --secondary: var(--secondary-500);
+  --secondary-light: var(--secondary-300);
+  --secondary-dark: var(--secondary-700);
+
+  /* =====================================================
+     SURFACES
+  ===================================================== */
+
+  --white: #FFFFFF;
+  --black: #0F172A;
+
+  --background: #FFFFFF;
+
+  --surface: #FCFCFC;
+  --surface-light: #FFFFFF;
+  --surface-dark: #F7F8FA;
+
+  /* =====================================================
+     BORDERS
+  ===================================================== */
+
+  --border: #E5E7EB;
+  --border-light: #F3F4F6;
+  --border-dark: #CBD5E1;
+
+  /* =====================================================
+     TEXT
+  ===================================================== */
+
+  --text: #111827;
+  --text-muted: #6B7280;
+  --text-light: #94A3B8;
+
+  /* =====================================================
+     STATUS
+  ===================================================== */
+
+  --success: #16A34A;
+  --success-bg: #DCFCE7;
+
+  --warning: #F59E0B;
+  --warning-bg: #FEF3C7;
+
+  --danger: #DC2626;
+  --danger-bg: #FEE2E2;
+
+  --info: #0284C7;
+  --info-bg: #E0F2FE;
+
+  /* =====================================================
+     LAYOUT
+  ===================================================== */
+
+  --header-height: 72px;
+  --container-width: 1440px;
+
+  /* =====================================================
+     BORDER RADIUS
+  ===================================================== */
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* =====================================================
+     SHADOWS
+  ===================================================== */
+
+  --shadow-xs:
+    0 1px 2px rgba(15,23,42,.05);
+
+  --shadow-sm:
+    0 3px 10px rgba(15,23,42,.06);
+
+  --shadow-card:
+    0 10px 28px rgba(15,23,42,.08);
+
+  --shadow-dropdown:
+    0 15px 36px rgba(15,23,42,.10);
+
+  --shadow-floating:
+    0 24px 60px rgba(15,23,42,.12);
+
+  /* Logo Orange Glow */
+
+  --shadow-primary:
+    0 18px 45px rgba(241,90,41,.35);
+
+  --shadow-secondary:
+    0 16px 40px rgba(212,206,30,.28);
+
+  --shadow-glow:
+    0 0 70px rgba(241,90,41,.40);
+
+  --shadow-glow-lg:
+    0 0 120px rgba(241,90,41,.28);
+
+  /* =====================================================
+     PREMIUM GRADIENTS
+  ===================================================== */
+
+  --gradient-brand:
+    linear-gradient(
+      135deg,
+      #FF8A55 0%,
+      #F15A29 42%,
+      #D63B18 100%
+    );
+
+  --gradient-fire:
+    linear-gradient(
+      90deg,
+      #FF8E57 0%,
+      #F15A29 50%,
+      #D73A18 100%
+    );
+
+  --gradient-premium:
+    linear-gradient(
+      135deg,
+      #F15A29 0%,
+      #FF7D4A 45%,
+      #D4CE1E 100%
+    );
+
+  --gradient-gold:
+    linear-gradient(
+      135deg,
+      #FFF6B5 0%,
+      #F4DE52 45%,
+      #D4CE1E 100%
+    );
+
+  /* =====================================================
+     TRANSITIONS
+  ===================================================== */
+
+  --transition-fast: .2s ease;
+  --transition: .3s ease;
+  --transition-slow: .45s ease;
+}
+.container-site {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (min-width: 640px) {
+  .container-site {
+    padding-inline: 1.5rem;
   }
 }
 
-html {
-  height: 100%;
+@media (min-width: 1024px) {
+  .container-site {
+    padding-inline: 2rem;
+  }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@media (min-width: 1280px) {
+  .container-site {
+    padding-inline: 2.5rem;
   }
 }

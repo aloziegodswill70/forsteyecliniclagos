@@ -1,66 +1,278 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import type { Metadata } from "next";
 
-export default function Home() {
+
+
+import Hero from "@/components/home/hero/Hero";
+
+import Services from "@/components/home/Services";
+
+import WhyChooseUs from "@/components/home/WhyChooseUs";
+
+import OpticalStore from "@/components/home/OpticalStore";
+
+import DigitalLens from "@/components/home/DigitalLens";
+
+import LowVisionProducts from "@/components/home/LowVisionProducts";
+
+import FounderCEO from "@/components/home/FounderCEO";
+
+import Branches from "@/components/home/Branches";
+
+import InsurancePartners from "@/components/home/InsurancePartners";
+
+import Testimonials from "@/components/home/Testimonials";
+
+import Conditions from "@/components/home/Conditions";
+
+import GoogleReviews from "@/components/home/GoogleReviews";
+
+import BlogPreview from "@/components/home/BlogPreview";
+
+import FAQs from "@/components/home/FAQs";
+
+import ContactCTA from "@/components/home/ContactCTA";
+
+import LocationsSEO from "@/components/home/LocationsSEO";
+
+
+
+export const metadata: Metadata = {
+
+  title:
+
+    "FORST Eye Clinic | Best Eye Clinic in Lagos | Eye Test, Cataract, Glaucoma, Optical Store & Contact Lenses",
+
+
+
+  description:
+
+    "FORST Eye Clinic provides comprehensive eye examinations, glaucoma management, cataract care, children's eye care, contact lenses, premium optical products, digital lenses, low vision rehabilitation and advanced eye care services across Lagos, Nigeria.",
+
+
+
+  keywords: [
+
+    "Forst Eye Clinic",
+
+    "Eye Clinic Lagos",
+
+    "Best Eye Clinic Nigeria",
+
+    "Eye Test Lagos",
+
+    "Eye Hospital Lagos",
+
+    "Optometrist Lagos",
+
+    "Ophthalmology Clinic",
+
+    "Glaucoma Treatment",
+
+    "Cataract Surgery",
+
+    "Dry Eye Clinic",
+
+    "Children Eye Care",
+
+    "Pediatric Eye Clinic",
+
+    "Contact Lenses Lagos",
+
+    "Contact Lens Centre",
+
+    "Digital Lens",
+
+    "Blue Light Glasses",
+
+    "Progressive Lenses",
+
+    "Prescription Glasses",
+
+    "Designer Frames",
+
+    "Optical Store Lagos",
+
+    "Low Vision Devices",
+
+    "Magnifiers",
+
+    "Electronic Magnifier",
+
+    "Vision Rehabilitation",
+
+    "Eye Care Nigeria",
+
+    "Eye Doctor Near Me",
+
+  ],
+
+
+
+  metadataBase: new URL("https://forsteyeclinic.com"),
+
+
+
+  alternates: {
+
+    canonical: "/",
+
+  },
+
+
+
+  openGraph: {
+
+    title: "FORST Eye Clinic | Trusted Eye Care Specialists",
+
+
+
+    description:
+
+      "Professional eye examinations, glaucoma care, cataract management, contact lenses, premium eyewear and advanced eye care services.",
+
+
+
+    url: "https://forsteyeclinic.com",
+
+
+
+    siteName: "FORST Eye Clinic",
+
+
+
+    locale: "en_NG",
+
+
+
+    type: "website",
+
+
+
+    images: [
+
+      {
+
+        url: "https://res.cloudinary.com/dut0fvswc/image/upload/v1783801568/Untitled_design_39_u6qbly.png",
+
+        width: 1200,
+
+        height: 630,
+
+        alt: "FORST Eye Clinic",
+
+      },
+
+    ],
+
+  },
+
+
+
+  twitter: {
+
+    card: "summary_large_image",
+
+
+
+    title: "FORST Eye Clinic",
+
+
+
+    description:
+
+      "Trusted eye care specialists providing comprehensive eye care, optical services and contact lenses.",
+
+
+
+    images: [
+
+      "https://res.cloudinary.com/dut0fvswc/image/upload/v1783801568/Untitled_design_39_u6qbly.png",
+
+    ],
+
+  },
+
+
+
+  robots: {
+
+    index: true,
+
+    follow: true,
+
+  },
+
+};
+
+
+
+export default function HomePage() {
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+    <main className="overflow-x-hidden bg-white">
+
+
+      {/* Hero */}
+      <Hero />
+
+
+      {/* Comprehensive Eye Care Services */}
+      <Services />
+
+
+      {/* Why Choose FORST */}
+      <WhyChooseUs />
+
+
+      {/* Premium Optical Store */}
+      <OpticalStore />
+
+
+      {/* Digital Lens Technology */}
+      <DigitalLens />
+
+
+      {/* Low Vision Centre */}
+      <LowVisionProducts />
+
+
+      {/* Founder & Chief Medical Director */}
+      <FounderCEO />
+
+
+      {/* Our Clinic Branches */}
+      <Branches />
+
+
+      {/* HMO & Insurance Partners */}
+      <InsurancePartners />
+
+      {/* Patient Testimonials */}
+      <Testimonials />
+
+      {/* Eye Conditions We Treat */}
+      <Conditions />
+
+      {/* Google Reviews */}
+      <GoogleReviews />
+
+      {/* Eye Health Articles */}
+      <BlogPreview />
+
+      {/* Frequently Asked Questions */}
+      <FAQs />
+
+      {/* Book Appointment */}
+      <ContactCTA />
+
+      {/* SEO Content */}
+      <LocationsSEO />
+
+
+
+    </main>
+
   );
+
 }
