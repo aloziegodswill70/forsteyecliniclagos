@@ -51,42 +51,41 @@ export default function InsurancePartners() {
         {/* Logos */}
 
         <div className="relative mt-16 overflow-hidden">
-          <div className="grid grid-cols-2 gap-4 md:gap-6 animate-partners">
-            {partners.concat(partners).map((logo, index) => (
-              <div
-            key={index}
-            className="
-              flex
-              items-center
-              justify-center
-              rounded-2xl
-              border
-              border-neutral-200
-              bg-white
-              p-2
-              sm:p-3
-              shadow-sm
-              transition-all
-              duration-300
-              hover:-translate-y-1
-              hover:border-primary/20
-              hover:shadow-lg
-            "
-          >
-            <div className="relative h-8 w-full sm:h-10 md:h-12 lg:h-14">
-              <Image
-                src={logo}
-                alt="Insurance Partner"
-                fill
-                className="object-contain"
-              />
+            <div className="grid grid-cols-2 gap-4 md:gap-6 animate-partners">
+              {partners.concat(partners).map((logo, index) => (
+                <div
+                  key={index}
+                  className="
+                    flex
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    border
+                    border-neutral-200
+                    bg-white
+                    p-3
+                    sm:p-3
+                    md:p-4
+                    shadow-sm
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:border-primary/20
+                    hover:shadow-lg
+                  "
+                >
+                  <div className="relative h-12 w-full sm:h-12 md:h-14 lg:h-16">
+                    <Image
+                      src={logo}
+                      alt="Insurance Partner"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-               
-            ))}
-          </div>
-        </div>
-
         {/* Bottom Text */}
 
         <div className="mx-auto mt-16 max-w-4xl text-center">

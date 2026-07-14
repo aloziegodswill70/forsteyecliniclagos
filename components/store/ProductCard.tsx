@@ -32,23 +32,23 @@ Thank you.`
   )}`;
 
   return (
-    <article className="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <article className="group overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm transition hover:shadow-md">
 
       {/* Image */}
 
       <div className="relative bg-neutral-50">
 
-        <span className="absolute left-3 top-3 z-10 rounded-full bg-secondary px-2.5 py-1 text-[10px] font-semibold text-black sm:px-3 sm:text-xs">
+        <span className="absolute left-2 top-2 z-10 rounded-full bg-secondary px-2 py-0.5 text-[9px] font-semibold text-black">
           {product.category}
         </span>
 
-        <div className="relative h-48 sm:h-56 lg:h-64 w-full">
+        <div className="relative h-28 sm:h-36 md:h-44 w-full overflow-hidden">
 
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className="object-contain p-5 transition-transform duration-500 group-hover:scale-105"
+            className="object-contain p-2 transition duration-300 group-hover:scale-105"
           />
 
         </div>
@@ -57,24 +57,24 @@ Thank you.`
 
       {/* Content */}
 
-      <div className="p-4 sm:p-5">
+      <div className="p-3 text-center">
 
-        <p className="text-[10px] font-bold uppercase tracking-wider text-primary sm:text-xs">
+        <p className="text-[9px] font-semibold uppercase tracking-wide text-primary">
           {product.brand}
         </p>
 
-        <h3 className="mt-2 text-base font-bold leading-6 text-neutral-900 sm:text-lg lg:text-xl">
+        <h3 className="mt-1 line-clamp-2 text-sm font-bold leading-5 text-neutral-900 sm:text-base">
           {product.name}
         </h3>
 
-        <p className="mt-3 line-clamp-3 text-sm leading-6 text-neutral-600">
+        <p className="mt-2 line-clamp-2 text-[11px] leading-5 text-neutral-600">
           {product.description}
         </p>
 
-        <div className="mt-4">
+        <div className="mt-2 flex justify-center">
 
           <span
-            className={`inline-flex rounded-full px-3 py-1.5 text-xs font-semibold ${
+            className={`rounded-full px-2 py-1 text-[9px] font-semibold ${
               product.availability === "Available"
                 ? "bg-green-100 text-green-700"
                 : "bg-blue-100 text-blue-700"
@@ -87,13 +87,13 @@ Thank you.`
 
         {/* Buttons */}
 
-        <div className="mt-5 grid grid-cols-2 gap-2">
+        <div className="mt-3 grid grid-cols-2 gap-2">
 
           <Link
             href={`/low-vision-store/${product.slug}`}
-            className="flex items-center justify-center gap-1.5 rounded-lg border border-neutral-300 px-3 py-2.5 text-xs font-semibold transition hover:border-primary hover:text-primary sm:text-sm"
+            className="flex items-center justify-center gap-1 rounded-md border border-neutral-300 py-2 text-[10px] font-semibold transition hover:border-primary hover:text-primary"
           >
-            <Eye size={15} />
+            <Eye size={12} />
             Details
           </Link>
 
@@ -101,9 +101,9 @@ Thank you.`
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2.5 text-xs font-semibold text-white transition hover:opacity-90 sm:text-sm"
+            className="flex items-center justify-center gap-1 rounded-md bg-primary py-2 text-[10px] font-semibold text-white transition hover:opacity-90"
           >
-            <MessageCircle size={15} />
+            <MessageCircle size={12} />
             Enquire
           </a>
 
