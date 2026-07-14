@@ -1,32 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import {
-  CalendarDays,
-  Phone,
-} from "lucide-react";
+import { CalendarDays, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 import clinic from "@/data/clinic";
 
 export default function HeroActions() {
   return (
-    <section className="mt-8">
-      <div className="flex flex-wrap items-center justify-center gap-3">
+    <section className="mt-5">
+      <div className="flex flex-wrap justify-center items-center gap-3">
 
-        {/* ================= Book Appointment ================= */}
+        {/* Book Appointment */}
 
         <Link
           href={clinic.appointment.bookingPage}
           className="
             inline-flex
+            h-11
             items-center
             justify-center
             gap-2
-            rounded-2xl
-            px-7
-            py-3.5
-            text-[15px]
+            rounded-xl
+            px-5
+            text-sm
             font-semibold
             text-white
             transition-all
@@ -37,15 +34,14 @@ export default function HeroActions() {
           style={{
             background:
               "linear-gradient(135deg,#FF5A34 0%,#FF3B1F 55%,#D92E12 100%)",
-            boxShadow:
-              "0 14px 34px rgba(255,59,31,.35)",
+            boxShadow: "0 12px 28px rgba(255,59,31,.35)",
           }}
         >
-          <CalendarDays size={20} />
+          <CalendarDays size={18} />
           <span>Book Appointment</span>
         </Link>
 
-        {/* ================= WhatsApp ================= */}
+        {/* WhatsApp */}
 
         <a
           href={clinic.appointment.whatsappBooking}
@@ -53,14 +49,14 @@ export default function HeroActions() {
           rel="noopener noreferrer"
           className="
             inline-flex
+            h-11
             items-center
             justify-center
-            gap-2.5
-            rounded-2xl
+            gap-2
+            rounded-xl
             bg-[#25D366]
-            px-6
-            py-3
-            text-[15px]
+            px-5
+            text-sm
             font-semibold
             text-white
             shadow-lg
@@ -70,25 +66,25 @@ export default function HeroActions() {
             hover:bg-[#20c65a]
           "
         >
-          <FaWhatsapp className="text-[20px]" />
+          <FaWhatsapp className="text-lg" />
           <span>WhatsApp</span>
         </a>
 
-        {/* ================= Call ================= */}
+        {/* Call */}
 
         <a
           href={clinic.appointment.callBooking}
           className="
             inline-flex
+            h-11
             items-center
             justify-center
             gap-2
-            rounded-2xl
+            rounded-xl
             border
             border-primary
             bg-white
-            px-4
-            py-2.5
+            px-5
             text-sm
             font-semibold
             text-primary
