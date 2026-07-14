@@ -13,11 +13,11 @@ import {
 
 export default function CTASection() {
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-5">
+    <section className="bg-white py-12 sm:py-14 lg:py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
 
         <div
-          className="overflow-hidden rounded-[32px] border border-orange-100 px-6 py-10 text-center shadow-xl md:px-10 md:py-14 lg:px-16"
+          className="overflow-hidden rounded-3xl border border-orange-100 px-5 py-8 text-center shadow-xl sm:px-8 sm:py-10 lg:px-12 lg:py-14"
           style={{
             background:
               "linear-gradient(135deg,#FF5A34 0%,#FF3B1F 55%,#D92E12 100%)",
@@ -27,58 +27,60 @@ export default function CTASection() {
         >
           {/* Badge */}
 
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2 text-sm font-semibold text-white backdrop-blur">
-            <ShieldCheck size={16} />
-            Trusted Eye Care Across Lagos
-          </span>
+          <div className="flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-[11px] font-semibold text-white backdrop-blur sm:px-5 sm:text-xs">
+              <ShieldCheck size={14} />
+              Trusted Eye Care Across Lagos
+            </span>
+          </div>
 
           {/* Heading */}
 
-          <h2 className="mx-auto mt-6 max-w-4xl text-3xl font-black leading-tight text-white md:text-5xl">
-            Protect Your Vision With
+          <h2 className="mx-auto mt-5 max-w-3xl text-2xl font-black leading-tight text-white sm:text-3xl lg:text-4xl">
+            Protect Your Vision
             <span className="block">
-              Professional Eye Care
+              With Professional Eye Care
             </span>
           </h2>
 
           {/* Description */}
 
-          <p className="mx-auto mt-6 max-w-3xl text-sm leading-7 text-white/90 md:text-base md:leading-8">
-            At <strong>FORST EYE CLINIC</strong>, we provide comprehensive
-            eye examinations, glaucoma screening, cataract assessment,
-            diabetic eye care, children's eye care, optical services and
-            advanced diagnostic technology delivered by experienced eye
-            care professionals.
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-white/90 sm:text-[15px] sm:leading-7">
+            <strong>FORST EYE CLINIC</strong> provides comprehensive eye
+            examinations, glaucoma screening, cataract assessment,
+            diabetic eye care, children's eye care, optical services
+            and advanced eye diagnostics delivered by experienced
+            professionals.
           </p>
 
           {/* Buttons */}
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mx-auto mt-8 flex max-w-xl flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
 
             <Link
               href="/book-eye-appointment"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-7 py-4 font-semibold text-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:w-auto"
             >
-              <CalendarDays size={20} />
+              <CalendarDays size={17} />
               Book Appointment
-              <ArrowRight size={18} />
+              <ArrowRight size={15} />
             </Link>
 
             <a
               href="tel:08186992818"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-white px-7 py-4 font-semibold text-white transition-all duration-300 hover:bg-white hover:text-primary sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white hover:text-primary sm:w-auto"
             >
-              <Phone size={20} />
-              Call Head Branch
+              <Phone size={17} />
+              Call Us
             </a>
 
             <a
               href="https://wa.me/2348186992818"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-7 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] sm:w-auto"
             >
-              <MessageCircle size={20} />
+              <MessageCircle size={17} />
               WhatsApp
             </a>
 
@@ -86,37 +88,43 @@ export default function CTASection() {
 
           {/* Info Cards */}
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3">
 
-            <div className="rounded-3xl bg-white/10 p-6 backdrop-blur">
+            {/* Branches */}
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-primary">
-                <MapPin size={22} />
+            <div className="rounded-2xl bg-white/10 p-4 text-center backdrop-blur">
+
+              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-white text-primary">
+                <MapPin size={18} />
               </div>
 
-              <h3 className="mt-4 text-lg font-bold text-white">
+              <h3 className="mt-3 text-sm font-bold text-white">
                 6 Lagos Branches
               </h3>
 
-              <p className="mt-2 text-sm leading-6 text-white/85">
-                Ogba, Magodo, Surulere,
-                Festac, Agbara &
-                Eleko.
+              <p className="mt-2 text-xs leading-5 text-white/85">
+                Ogba, Magodo,
+                <br />
+                Surulere, Festac,
+                <br />
+                Agbara & Eleko
               </p>
 
             </div>
 
-            <div className="rounded-3xl bg-white/10 p-6 backdrop-blur">
+            {/* Hours */}
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-primary">
-                <Clock3 size={22} />
+            <div className="rounded-2xl bg-white/10 p-4 text-center backdrop-blur">
+
+              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-white text-primary">
+                <Clock3 size={18} />
               </div>
 
-              <h3 className="mt-4 text-lg font-bold text-white">
+              <h3 className="mt-3 text-sm font-bold text-white">
                 Opening Hours
               </h3>
 
-              <p className="mt-2 text-sm leading-6 text-white/85">
+              <p className="mt-2 text-xs leading-5 text-white/85">
                 Monday – Saturday
                 <br />
                 9:00 AM – 6:00 PM
@@ -124,17 +132,19 @@ export default function CTASection() {
 
             </div>
 
-            <div className="rounded-3xl bg-white/10 p-6 backdrop-blur">
+            {/* Contact */}
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-primary">
-                <Phone size={22} />
+            <div className="rounded-2xl bg-white/10 p-4 text-center backdrop-blur">
+
+              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-white text-primary">
+                <Phone size={18} />
               </div>
 
-              <h3 className="mt-4 text-lg font-bold text-white">
+              <h3 className="mt-3 text-sm font-bold text-white">
                 Contact Us
               </h3>
 
-              <p className="mt-2 text-sm leading-6 text-white/85">
+              <p className="mt-2 text-xs leading-5 text-white/85 break-words">
                 0818 699 2818
                 <br />
                 firsteyeclinic@gmail.com

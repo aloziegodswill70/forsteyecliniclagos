@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import {
-  Eye,
-  Shield,
-  ScanEye,
-  Glasses,
-  Baby,
-  Monitor,
-  Stethoscope,
-  HeartPulse,
   ArrowRight,
+  Baby,
+  Eye,
+  Glasses,
+  HeartPulse,
+  Monitor,
+  ScanEye,
+  Shield,
+  Stethoscope,
 } from "lucide-react";
 
 const services = [
@@ -59,90 +59,129 @@ const services = [
 const firstRow = services.slice(0, 4);
 const secondRow = services.slice(4);
 
-function MarqueeRow({
+function ServiceCard({
+  service,
+}: {
+  service: (typeof services)[number];
+}) {
+  const Icon = service.icon;
+
+  return (
+    <Link
+      href={service.href}
+      className="
+      group
+      flex
+      w-[180px]
+      sm:w-[200px]
+      lg:w-[235px]
+      shrink-0
+      items-center
+      gap-3
+      rounded-2xl
+      border
+      border-neutral-200
+      bg-white
+      p-3
+      sm:p-4
+      shadow-sm
+      transition-all
+      duration-300
+      hover:-translate-y-1
+      hover:border-[#FF5A34]/40
+      hover:shadow-xl
+    "
+    >
+      <div
+        className="
+        flex
+        h-10
+        w-10
+        sm:h-11
+        sm:w-11
+        items-center
+        justify-center
+        rounded-xl
+        text-white
+      "
+        style={{
+          background:
+            "linear-gradient(135deg,#FF5A34 0%,#FF3B1F 55%,#D92E12 100%)",
+        }}
+      >
+        <Icon size={20} />
+      </div>
+
+      <div className="flex-1">
+        <h3 className="text-xs font-bold leading-5 text-neutral-900 sm:text-sm">
+          {service.title}
+        </h3>
+
+        <div className="mt-2 flex items-center gap-1 text-xs font-semibold text-[#C9A227] transition group-hover:text-primary">
+          Explore
+          <ArrowRight size={14} />
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+function DesktopMarquee({
   items,
   reverse = false,
 }: {
   items: typeof services;
   reverse?: boolean;
 }) {
-  const marqueeItems = [...items, ...items];
+  const duplicated = [...items, ...items];
 
   return (
-    <div className="relative mx-auto max-w-6xl overflow-hidden py-3">
+    <div className="hidden overflow-hidden lg:block">
       <div
-        className={`flex w-max gap-4 lg:gap-5 ${
+        className={`flex w-max gap-5 py-3 ${
           reverse
             ? "animate-[marqueeReverse_32s_linear_infinite]"
             : "animate-[marquee_32s_linear_infinite]"
         }`}
       >
-        {marqueeItems.map((service, index) => {
-          const Icon = service.icon;
-
-          return (
-            <Link
-              key={`${service.title}-${index}`}
-              href={service.href}
-              className="
-                group
-                flex
-                w-[210px]
-                sm:w-[235px]
-                lg:w-[255px]
-                xl:w-[270px]
-                shrink-0
-                items-center
-                gap-4
-                rounded-3xl
-                border
-                border-neutral-200
-                bg-white
-                p-4
-                lg:p-5
-                shadow-sm
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:border-[#FF5A34]/40
-                hover:shadow-xl
-              "
-            >
-              <div
-                className="
-                  flex
-                  h-12
-                  w-12
-                  lg:h-14
-                  lg:w-14
-                  shrink-0
-                  items-center
-                  justify-center
-                  rounded-2xl
-                  text-white
-                "
-                style={{
-                  background:
-                    "linear-gradient(135deg,#FF5A34 0%,#FF3B1F 55%,#D92E12 100%)",
-                }}
-              >
-                <Icon size={24} />
-              </div>
-
-              <div className="flex-1">
-                <h3 className="text-sm font-bold leading-6 text-neutral-900 lg:text-base xl:text-lg">
-                  {service.title}
-                </h3>
-
-                <div className="mt-2 flex items-center gap-2 text-sm font-semibold text-[#C9A227] transition group-hover:text-primary">
-                  Explore
-                  <ArrowRight size={16} />
-                </div>
-              </div>
-            </Link>
-          );
-        })}
+        {duplicated.map((service, index) => (
+          <ServiceCard
+            key={`${service.title}-${index}`}
+            service={service}
+          />
+        ))}
       </div>
+    </div>
+  );
+}
+
+function MobileCarousel({
+  items,
+}: {
+  items: typeof services;
+}) {
+  return (
+    <div
+      className="
+      lg:hidden
+      flex
+      gap-4
+      overflow-x-auto
+      snap-x
+      snap-mandatory
+      pb-4
+      px-1
+      scrollbar-hide
+    "
+    >
+      {items.map((service) => (
+        <div
+          key={service.title}
+          className="snap-center"
+        >
+          <ServiceCard service={service} />
+        </div>
+      ))}
     </div>
   );
 }
@@ -153,41 +192,54 @@ export default function Services() {
       id="services"
       className="overflow-hidden bg-gradient-to-b from-white via-[#FFFDFB] to-white py-14 lg:py-20"
     >
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 xl:px-10">
+      <div className="mx-auto max-w-7xl px-5">
+
         {/* Header */}
 
-        <div className="mx-auto mb-10 max-w-3xl text-center">
-          <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary">
+        <div className="mx-auto max-w-3xl text-center">
+
+          <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary sm:text-sm">
             Our Services
           </span>
 
-          <h2 className="mt-5 text-3xl font-black leading-tight text-neutral-900 md:text-4xl">
+          <h2 className="mt-4 text-2xl font-black leading-tight text-neutral-900 sm:text-3xl lg:text-4xl">
             Professional Eye Care
             <span className="block text-primary">
               For Every Stage of Vision
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-neutral-600">
-            Forst Eye Clinic provides professional eye care services like:
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-neutral-600 sm:text-base">
+            Forst Eye Clinic provides professional eye care services for
+            children, adults and seniors using modern diagnostic technology.
           </p>
+
         </div>
 
-        {/* Sliding Services */}
+        {/* MOBILE */}
 
-        <MarqueeRow items={firstRow} />
+        <div className="mt-10 space-y-4">
+          <MobileCarousel items={firstRow} />
+          <MobileCarousel items={secondRow} />
+        </div>
 
-        <MarqueeRow
-          items={secondRow}
-          reverse
-        />
+        {/* DESKTOP */}
 
-        {/* CTA */}
+        <div className="mt-10">
+          <DesktopMarquee items={firstRow} />
+          <DesktopMarquee
+            items={secondRow}
+            reverse
+          />
+        </div>
 
-        <div className="mx-auto mt-12 flex justify-center">
+        {/* Button */}
+
+        <div className="mt-10 flex justify-center">
+
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1"
+            className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1"
             style={{
               background:
                 "linear-gradient(135deg,#FF5A34 0%,#FF3B1F 55%,#D92E12 100%)",
@@ -196,24 +248,29 @@ export default function Services() {
             }}
           >
             View All Services
-            <ArrowRight size={18} />
+            <ArrowRight size={16} />
           </Link>
+
         </div>
 
-        {/* Bottom SEO */}
+        {/* Bottom */}
 
-        <div className="mx-auto mt-16 max-w-4xl rounded-[28px] border border-[#C9A227]/20 bg-gradient-to-r from-[#FFF8E8] via-white to-[#FFF8E8] p-6 text-center md:p-8">
-          <h3 className="text-2xl font-bold text-primary">
+        <div className="mx-auto mt-14 max-w-4xl rounded-[24px] border border-[#C9A227]/20 bg-gradient-to-r from-[#FFF8E8] via-white to-[#FFF8E8] p-6 text-center">
+
+          <h3 className="text-xl font-bold text-primary sm:text-2xl">
             Trusted Eye Care Clinic in Lagos
           </h3>
 
-          <p className="mt-4 leading-8 text-neutral-600">
-            We provide comprehensive eye examinations, glaucoma management,
-            cataract care, pediatric eye care, low vision rehabilitation,
-            digital lenses, dry eye treatment and premium optical services
-            using modern technology with compassionate patient-focused care.
+          <p className="mt-3 text-sm leading-7 text-neutral-600 sm:text-base">
+            We provide comprehensive eye examinations, glaucoma
+            management, cataract care, pediatric eye care, low vision
+            rehabilitation, dry eye treatment, digital lenses and premium
+            optical services using modern technology with compassionate,
+            patient-focused care.
           </p>
+
         </div>
+
       </div>
     </section>
   );
