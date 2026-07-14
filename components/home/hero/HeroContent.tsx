@@ -34,24 +34,25 @@ export default function HeroContent() {
 
       {/* Heading */}
 
-      <h1 className="mt-4 max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-3xl lg:text-4xl">
-        Protect Your Vision
-        <span className="block">
-          With Expert Eye Care
-        </span>
-      </h1>
+          <h1 className="mt-4 max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-3xl lg:text-4xl">
+            <span className="animate-eyeGlow">
+              Protect Your Eyes
+            </span>
 
-      {/* Supporting Text */}
+            <span className="block">
+              With Expert Eye Care
+            </span>
+          </h1>
 
-      <p className="mt-3 max-w-xl text-[15px] leading-7 text-neutral-600">
-        Eye examinations, glaucoma care, cataract evaluation,
-        children's eye care and premium optical services.
-      </p>
+          {/* Services */}
 
-      <p className="mt-2 text-[11px] font-medium tracking-wide text-neutral-500">
-        Professional • Affordable • Trusted Across Lagos
-      </p>
+          <p className="mt-3 text-sm font-medium text-neutral-600 sm:text-[15px]">
+            Eye Examinations • Managements • Premium Optical Services
+          </p>
 
+          <p className="mt-2 text-[11px] font-medium tracking-wide text-neutral-500">
+            Professional • Affordable • Trusted Across Lagos
+          </p>
       {/* Hero Video */}
 
       <div className="mt-6 w-full max-w-xl overflow-hidden rounded-2xl border border-neutral-200 bg-black shadow-xl">
