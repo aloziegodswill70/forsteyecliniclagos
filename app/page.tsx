@@ -30,8 +30,6 @@ import BlogPreview from "@/components/home/BlogPreview";
 
 import FAQs from "@/components/home/FAQs";
 
-import ContactCTA from "@/components/home/ContactCTA";
-
 import LocationsSEO from "@/components/home/LocationsSEO";
 
 
@@ -262,9 +260,6 @@ export default function HomePage() {
 
       {/* Frequently Asked Questions */}
       <FAQs />
-
-      {/* Book Appointment */}
-      <ContactCTA />
 
       {/* SEO Content */}
       <LocationsSEO />

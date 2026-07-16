@@ -17,36 +17,51 @@ export default function HeroBottomBar() {
   return (
     <section className="py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div
-          className="overflow-hidden rounded-[32px]"
-          style={{
-            background:
-              "linear-gradient(135deg,#FF5A34 0%,#FF3B1F 55%,#D92E12 100%)",
-            boxShadow: "0 14px 34px rgba(255,59,31,.35)",
-          }}
-        >
+
+        {/* Main Container */}
+
+        <div className="overflow-hidden rounded-[32px] border border-primary/10 bg-white shadow-xl">
+
           <div className="grid items-center gap-10 p-6 sm:p-8 lg:grid-cols-[1.25fr_.85fr] lg:p-12">
 
-            {/* LEFT */}
+            {/* ================= LEFT ================= */}
 
             <div className="text-center lg:text-left">
 
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-semibold text-white backdrop-blur sm:text-sm">
+              <span
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-full
+                  border
+                  border-primary/20
+                  bg-white
+                  px-4
+                  py-2
+                  text-xs
+                  font-semibold
+                  text-primary
+                  shadow-sm
+                  sm:text-sm
+                "
+              >
                 <Star
                   size={15}
-                  className="fill-white"
+                  className="fill-primary text-primary"
                 />
+
                 Trusted by 20,000+ Patients
               </span>
-
-              <h2 className="mt-6 text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">
+    
+              <h2 className="mt-6 text-3xl font-black leading-tight text-neutral-900 sm:text-4xl lg:text-5xl">
                 Ready To
-                <span className="block">
+                <span className="block text-primary">
                   Protect Your Vision?
                 </span>
               </h2>
 
-              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/90 sm:text-base lg:mx-0">
+              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-neutral-600 sm:text-base lg:mx-0">
                 Book a comprehensive eye examination with our experienced
                 eye care professionals. We provide glaucoma screening,
                 cataract evaluation, children's eye care, diabetic eye
@@ -56,9 +71,11 @@ export default function HeroBottomBar() {
 
               <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
 
+                {/* Book Appointment */}
+
                 <Link
                   href={clinic.cta.href}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-auto"
                 >
                   <CalendarDays size={18} />
 
@@ -67,11 +84,13 @@ export default function HeroBottomBar() {
                   <ArrowRight size={18} />
                 </Link>
 
+                {/* WhatsApp */}
+
                 <a
                   href={clinic.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/70 px-6 py-3.5 font-semibold text-white transition-all duration-300 hover:bg-white hover:text-primary sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary px-6 py-3.5 font-semibold text-primary transition-all duration-300 hover:bg-primary hover:text-white sm:w-auto"
                 >
                   <MessageCircle size={18} />
 
@@ -79,11 +98,12 @@ export default function HeroBottomBar() {
                 </a>
 
               </div>
+
             </div>
 
-            {/* RIGHT */}
+            {/* ================= RIGHT ================= */}
 
-            <div className="mx-auto w-full max-w-md rounded-3xl bg-white p-6 shadow-xl lg:p-7">
+            <div className="mx-auto w-full max-w-md rounded-3xl border border-primary/10 bg-white p-6 shadow-lg lg:p-7">
 
               <h3 className="text-xl font-bold text-primary">
                 Contact Information
@@ -165,7 +185,7 @@ export default function HeroBottomBar() {
 
               <Link
                 href="/branches"
-                className="mt-8 inline-flex items-center gap-2 font-semibold text-primary transition hover:gap-3"
+                className="mt-8 inline-flex items-center gap-2 font-semibold text-primary transition-all duration-300 hover:gap-3"
               >
                 View All Branches
 
@@ -175,7 +195,9 @@ export default function HeroBottomBar() {
             </div>
 
           </div>
+
         </div>
+
       </div>
     </section>
   );

@@ -36,16 +36,44 @@ export default function HeroStats() {
 
       {/* ================= Mobile ================= */}
 
-      <div className="flex justify-center sm:hidden">
-        <div className="flex items-center justify-center gap-3">
-
+      <div className="sm:hidden">
+        <div
+          className="
+            flex
+            gap-3
+            overflow-x-auto
+            px-1
+            pb-2
+            scrollbar-hide
+          "
+        >
           {stats.map((item) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={item.title}
-                className="flex h-[90px] w-[90px] shrink-0 flex-col items-center justify-center rounded-2xl border border-primary/15 bg-white text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-md"
+                className="
+                  flex
+                  h-[90px]
+                  w-[90px]
+                  min-w-[90px]
+                  flex-shrink-0
+                  flex-col
+                  items-center
+                  justify-center
+                  rounded-2xl
+                  border
+                  border-primary/15
+                  bg-white
+                  text-center
+                  shadow-sm
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-primary
+                  hover:shadow-md
+                "
               >
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10">
                   <Icon
@@ -64,21 +92,37 @@ export default function HeroStats() {
               </div>
             );
           })}
-
         </div>
       </div>
 
       {/* ================= Desktop ================= */}
 
-      <div className="hidden grid-cols-2 gap-3 sm:grid sm:gap-4 lg:grid-cols-4">
-
+      <div className="hidden gap-3 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         {stats.map((item) => {
           const Icon = item.icon;
 
           return (
             <div
               key={item.title}
-              className="group flex flex-col items-center rounded-2xl border border-neutral-200 bg-white px-3 py-4 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-lg"
+              className="
+                group
+                flex
+                flex-col
+                items-center
+                rounded-2xl
+                border
+                border-neutral-200
+                bg-white
+                px-3
+                py-4
+                text-center
+                shadow-sm
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:border-primary/20
+                hover:shadow-lg
+              "
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 transition group-hover:bg-primary">
                 <Icon
@@ -97,7 +141,6 @@ export default function HeroStats() {
             </div>
           );
         })}
-
       </div>
 
     </section>

@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
 const videos = [
   "/videos/hero.mp4",
   "/videos/eyetest.mp4",
@@ -10,54 +8,28 @@ const videos = [
 ];
 
 export default function HeroReels() {
-  const sliderRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const slider = sliderRef.current;
-    if (!slider) return;
-
-    const interval = setInterval(() => {
-      const cardWidth = 112; // reel width + gap
-
-      if (
-        slider.scrollLeft + slider.clientWidth >=
-        slider.scrollWidth - 10
-      ) {
-        slider.scrollTo({
-          left: 0,
-          behavior: "smooth",
-        });
-      } else {
-        slider.scrollBy({
-          left: cardWidth,
-          behavior: "smooth",
-        });
-      }
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="mt-4 w-full sm:mt-8">
       <div
-        ref={sliderRef}
         className="
           flex
-          gap-3
+          gap-2
           overflow-x-auto
           scroll-smooth
           snap-x
           snap-mandatory
-          scrollbar-hide
           pb-2
+          px-1
+          [-ms-overflow-style:none]
+          [scrollbar-width:none]
+          [&::-webkit-scrollbar]:hidden
         "
       >
         {videos.map((video, index) => (
           <div
             key={index}
             className="
-              snap-center
+              snap-start
               shrink-0
               overflow-hidden
               rounded-2xl
@@ -65,10 +37,13 @@ export default function HeroReels() {
               border-primary
               bg-black
               shadow-md
-              w-[100px]
-              h-[175px]
-              sm:w-[135px]
-              sm:h-[240px]
+
+              w-[23%]
+              aspect-[9/16]
+
+              sm:w-[140px]
+              sm:h-[245px]
+
               lg:w-[180px]
               lg:h-[320px]
             "
@@ -81,7 +56,10 @@ export default function HeroReels() {
               playsInline
               controls={false}
             >
-              <source src={video} type="video/mp4" />
+              <source
+                src={video}
+                type="video/mp4"
+              />
             </video>
           </div>
         ))}

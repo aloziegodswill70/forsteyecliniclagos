@@ -9,24 +9,24 @@ import HeroReels from "./HeroReels";
 
 export default function HeroContent() {
   return (
-    <section className="mx-auto flex w-full max-w-3xl flex-col items-center px-3 sm:px-5 text-center">
+    <section className="mx-auto flex w-full max-w-3xl flex-col items-center px-4 sm:px-5 text-center">
 
       {/* ================= Mobile Hero Card ================= */}
 
       <div
-        className="mt-1 w-full rounded-xl border bg-white px-4 py-4 shadow-md sm:hidden"
+        className="mt-2 w-full max-w-full rounded-xl border bg-white px-4 py-4 shadow-md sm:hidden"
         style={{
           borderColor: "#E0402A",
         }}
       >
-        {/* Orange Accent */}
+        {/* Accent */}
 
         <div className="mx-auto mb-3 h-1 w-16 rounded-full bg-primary" />
 
         {/* Badge */}
 
         <div
-          className="mx-auto inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1"
+          className="mx-auto inline-flex max-w-full items-center gap-1.5 rounded-full border px-2.5 py-1"
           style={{
             borderColor: "#D4AF37",
             background: "rgba(212,175,55,.08)",
@@ -38,7 +38,7 @@ export default function HeroContent() {
           />
 
           <span
-            className="text-[8px] font-semibold uppercase tracking-[0.12em]"
+            className="text-[8px] font-semibold uppercase tracking-[0.1em]"
             style={{ color: "#D4AF37" }}
           >
             Trusted Eye Care
@@ -47,8 +47,7 @@ export default function HeroContent() {
 
         {/* Heading */}
 
-        <h1 className="mt-2 text-lg font-extrabold leading-tight text-neutral-900">
-
+        <h1 className="mt-3 text-lg font-extrabold leading-tight text-neutral-900">
           <span className="animate-eyeGlow">
             Protect Your Eyes
           </span>
@@ -56,24 +55,22 @@ export default function HeroContent() {
           <span className="block">
             With Expert Eye Care
           </span>
-
         </h1>
 
         {/* Services */}
 
-        <p className="mt-2 text-[11px] font-medium leading-5 text-neutral-600">
+        <p className="mx-auto mt-2 max-w-full text-[11px] font-medium leading-5 text-neutral-600 break-words">
           Eye Examinations • Managements • Premium Optical Services
         </p>
 
-        <p className="mt-1 text-[9px] tracking-wide text-neutral-500">
+        <p className="mt-2 text-[9px] leading-4 tracking-wide text-neutral-500">
           Professional • Affordable • Trusted Across Lagos
         </p>
-
       </div>
 
       {/* ================= Desktop ================= */}
 
-      <div className="hidden sm:block">
+      <div className="hidden w-full sm:block">
 
         <div
           className="inline-flex items-center gap-2 rounded-full border px-3 py-1.5"
@@ -95,8 +92,7 @@ export default function HeroContent() {
           </span>
         </div>
 
-        <h1 className="mt-4 max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-3xl lg:text-4xl">
-
+        <h1 className="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-3xl lg:text-4xl">
           <span className="animate-eyeGlow">
             Protect Your Eyes
           </span>
@@ -104,10 +100,9 @@ export default function HeroContent() {
           <span className="block">
             With Expert Eye Care
           </span>
-
         </h1>
 
-        <p className="mt-3 text-sm font-medium text-neutral-600 sm:text-[15px]">
+        <p className="mx-auto mt-3 max-w-2xl text-sm font-medium text-neutral-600 sm:text-[15px]">
           Eye Examinations • Managements • Premium Optical Services
         </p>
 
@@ -116,25 +111,28 @@ export default function HeroContent() {
         </p>
 
       </div>
-          <div>
-            <HeroReels/>
-          </div>
 
-      {/* CTA */}
+      {/* ================= Hero Reels ================= */}
 
-      <div className="mt-4 w-full sm:mt-5">
+      <div className="mt-4 w-full">
+        <HeroReels />
+      </div>
+
+      {/* ================= CTA ================= */}
+
+      <div className="mt-4 w-full">
         <HeroActions />
       </div>
 
-      {/* Statistics */}
+      {/* ================= Statistics ================= */}
 
-      <div className="mt-5 w-full sm:mt-8">
+      <div className="mt-5 w-full">
         <HeroStats />
       </div>
 
-      {/* Social */}
+      {/* ================= Social ================= */}
 
-      <div className="mt-5 sm:mt-7">
+      <div className="mt-5 w-full">
         <HeroSocials />
       </div>
 

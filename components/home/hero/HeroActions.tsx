@@ -8,13 +8,13 @@ import clinic from "@/data/clinic";
 
 export default function HeroActions() {
   return (
-    <section className="mt-5">
+    <section className="mt-5 w-full">
 
       {/* ================= Mobile ================= */}
 
-      <div className="grid grid-cols-3 justify-items-center gap-3 sm:hidden">
+      <div className="flex w-full items-center justify-center gap-5 px-4 sm:hidden">
 
-        {/* Book */}
+        {/* Book Appointment */}
 
         <Link
           href={clinic.appointment.bookingPage}
@@ -23,6 +23,7 @@ export default function HeroActions() {
             flex
             h-12
             w-12
+            shrink-0
             items-center
             justify-center
             rounded-full
@@ -51,6 +52,7 @@ export default function HeroActions() {
             flex
             h-12
             w-12
+            shrink-0
             items-center
             justify-center
             rounded-full
@@ -74,6 +76,7 @@ export default function HeroActions() {
             flex
             h-12
             w-12
+            shrink-0
             items-center
             justify-center
             rounded-full
@@ -88,7 +91,7 @@ export default function HeroActions() {
             hover:text-white
           "
         >
-          <Phone size={20} />
+          <Phone size={20} strokeWidth={2.3} />
         </a>
 
       </div>
