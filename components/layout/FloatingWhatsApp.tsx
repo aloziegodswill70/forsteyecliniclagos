@@ -16,7 +16,7 @@ export default function FloatingWhatsApp() {
         className="
           pointer-events-none
           absolute
-          right-20
+          right-16
           top-1/2
           -translate-y-1/2
           whitespace-nowrap
@@ -48,8 +48,10 @@ export default function FloatingWhatsApp() {
         className="
           relative
           flex
-          h-16
-          w-16
+          h-12
+          w-12
+          sm:h-16
+          sm:w-16
           items-center
           justify-center
           rounded-full
@@ -71,8 +73,7 @@ export default function FloatingWhatsApp() {
 
         {/* Icon */}
         <FaWhatsapp
-          size={34}
-          className="relative z-10"
+          className="relative z-10 h-6 w-6 sm:h-[34px] sm:w-[34px]"
         />
       </a>
     </div>

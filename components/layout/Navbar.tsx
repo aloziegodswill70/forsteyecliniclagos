@@ -51,7 +51,7 @@ export default function Navbar() {
             : "border-b border-neutral-100"
         }`}
       >
-        <div className="mx-auto flex h-[86px] w-full max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-8 xl:h-[78px] xl:px-10">
+        <div className="mx-auto flex h-[64px] w-full max-w-[1440px] items-center justify-between px-3 sm:h-[70px] sm:px-5 lg:px-6 xl:h-[78px] xl:px-10">
 
           {/* ================= Logo ================= */}
 
@@ -67,8 +67,8 @@ export default function Navbar() {
               priority
               className={`w-auto object-contain transition-all duration-300 ${
                 isScrolled
-                  ? "h-[44px]"
-                  : "h-[52px]"
+                  ? "h-[34px] sm:h-[38px] xl:h-[44px]"
+                  : "h-[40px] sm:h-[46px] xl:h-[52px]"
               }`}
             />
           </Link>
@@ -110,7 +110,7 @@ export default function Navbar() {
 
           {/* ================= Mobile Actions ================= */}
 
-          <div className="flex items-center gap-3 xl:hidden">
+          <div className="flex items-center gap-2 xl:hidden">
 
             {/* Low Vision Enquiry */}
 
@@ -121,9 +121,12 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(true)}
               aria-label="Open Menu"
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-200 bg-white transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-200 bg-white transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white sm:h-10 sm:w-10"
             >
-              <Menu size={24} />
+              <Menu
+                size={20}
+                className="sm:h-5 sm:w-5"
+              />
             </button>
 
           </div>

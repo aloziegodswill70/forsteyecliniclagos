@@ -12,7 +12,7 @@ export default function FloatingCall() {
         className="
           pointer-events-none
           absolute
-          right-20
+          right-16
           top-1/2
           -translate-y-1/2
           whitespace-nowrap
@@ -46,8 +46,10 @@ export default function FloatingCall() {
         className="
           relative
           flex
-          h-16
-          w-16
+          h-12
+          w-12
+          sm:h-16
+          sm:w-16
           items-center
           justify-center
           overflow-hidden
@@ -103,9 +105,8 @@ export default function FloatingCall() {
 
         {/* Icon */}
         <Phone
-          size={28}
           strokeWidth={2.6}
-          className="relative z-10"
+          className="relative z-10 h-5 w-5 sm:h-7 sm:w-7"
         />
       </a>
     </div>

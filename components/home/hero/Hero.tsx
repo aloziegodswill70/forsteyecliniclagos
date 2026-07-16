@@ -4,6 +4,7 @@ import HeroContent from "./HeroContent";
 import HeroMedia from "./HeroMedia";
 import HeroBottom from "./HeroBottomBar";
 
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-white via-orange-50/40 to-white">
@@ -19,7 +20,7 @@ export default function Hero() {
       <div className="container-site relative z-10 pt-8 pb-10 lg:pt-14 lg:pb-20">
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <HeroContent />
-
+          
           <HeroMedia />
         </div>
 

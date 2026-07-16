@@ -9,7 +9,93 @@ import clinic from "@/data/clinic";
 export default function HeroActions() {
   return (
     <section className="mt-5">
-      <div className="flex flex-wrap justify-center items-center gap-3">
+
+      {/* ================= Mobile ================= */}
+
+      <div className="grid grid-cols-3 justify-items-center gap-3 sm:hidden">
+
+        {/* Book */}
+
+        <Link
+          href={clinic.appointment.bookingPage}
+          aria-label="Book Appointment"
+          className="
+            flex
+            h-12
+            w-12
+            items-center
+            justify-center
+            rounded-full
+            text-white
+            shadow-lg
+            transition-all
+            duration-300
+            hover:scale-105
+          "
+          style={{
+            background:
+              "linear-gradient(135deg,#FF5A34 0%,#FF3B1F 55%,#D92E12 100%)",
+          }}
+        >
+          <CalendarDays size={20} />
+        </Link>
+
+        {/* WhatsApp */}
+
+        <a
+          href={clinic.appointment.whatsappBooking}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="
+            flex
+            h-12
+            w-12
+            items-center
+            justify-center
+            rounded-full
+            bg-[#25D366]
+            text-white
+            shadow-lg
+            transition-all
+            duration-300
+            hover:scale-105
+          "
+        >
+          <FaWhatsapp size={20} />
+        </a>
+
+        {/* Call */}
+
+        <a
+          href={clinic.appointment.callBooking}
+          aria-label="Call"
+          className="
+            flex
+            h-12
+            w-12
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-primary
+            bg-white
+            text-primary
+            shadow-lg
+            transition-all
+            duration-300
+            hover:bg-primary
+            hover:text-white
+          "
+        >
+          <Phone size={20} />
+        </a>
+
+      </div>
+
+      {/* ================= Tablet & Desktop ================= */}
+
+      <div className="hidden flex-wrap items-center justify-center gap-3 sm:flex">
 
         {/* Book Appointment */}
 
@@ -100,6 +186,7 @@ export default function HeroActions() {
         </a>
 
       </div>
+
     </section>
   );
 }
