@@ -13,13 +13,15 @@ export default function HeroReels() {
       <div
         className="
           flex
-          gap-2
+          items-center
+          gap-1.5
           overflow-x-auto
           scroll-smooth
           snap-x
           snap-mandatory
           pb-2
           px-1
+
           [-ms-overflow-style:none]
           [scrollbar-width:none]
           [&::-webkit-scrollbar]:hidden
@@ -36,16 +38,19 @@ export default function HeroReels() {
               border-2
               border-primary
               bg-black
-              shadow-md
+              shadow-lg
 
-              w-[23%]
-              aspect-[9/16]
+              w-[88px]
+              h-[156px]
 
-              sm:w-[140px]
-              sm:h-[245px]
+              sm:w-[125px]
+              sm:h-[220px]
 
-              lg:w-[180px]
-              lg:h-[320px]
+              lg:w-[150px]
+              lg:h-[270px]
+
+              xl:w-[165px]
+              xl:h-[295px]
             "
           >
             <video

@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   Play,
   Eye,
- ShieldCheck,
+  ShieldCheck,
   Star,
   CalendarDays,
   Phone,
@@ -13,8 +13,23 @@ import {
 
 export default function HeroMedia() {
   return (
-    <div className="mx-auto flex w-full max-w-xl flex-col items-center">
+    <div
+      className="
+        mx-auto
+        flex
+        w-full
+        max-w-xl
+        flex-col
+        items-center
 
+        lg:max-w-[500px]
+        xl:max-w-[520px]
+        lg:ml-auto
+        lg:mr-0
+        lg:translate-x-10
+        xl:translate-x-16
+      "
+    >
       {/* Premium Badge */}
 
       <div
@@ -40,14 +55,20 @@ export default function HeroMedia() {
       {/* Image */}
 
       <div className="relative overflow-hidden rounded-[26px] border border-neutral-200 bg-white shadow-2xl">
-
         <Image
           src="/images/hero/hero.jpg"
           alt="Forst Eye Clinic"
           width={620}
           height={620}
           priority
-          className="aspect-square w-full object-cover"
+          className="
+            aspect-square
+            w-full
+            object-cover
+
+            lg:max-w-[500px]
+            xl:max-w-[520px]
+          "
         />
 
         {/* Play */}
@@ -65,7 +86,6 @@ export default function HeroMedia() {
         {/* Bottom Gradient */}
 
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-5 pb-5 pt-12">
-
           <h3 className="text-center text-lg font-bold text-white">
             Book Your Eye Examination
           </h3>
@@ -75,7 +95,6 @@ export default function HeroMedia() {
           </p>
 
           <div className="mt-4 flex justify-center gap-3">
-
             <Link
               href="/book-eye-appointment"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
@@ -91,15 +110,12 @@ export default function HeroMedia() {
               <Phone size={16} />
               Call
             </Link>
-
           </div>
-
         </div>
 
         {/* Floating Eye Card */}
 
         <div className="absolute left-4 top-4 hidden rounded-2xl bg-white/95 px-4 py-3 shadow-xl backdrop-blur lg:flex lg:items-center lg:gap-3">
-
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
             <Eye
               size={20}
@@ -108,7 +124,6 @@ export default function HeroMedia() {
           </div>
 
           <div>
-
             <p className="text-sm font-semibold">
               Eye Examination
             </p>
@@ -116,28 +131,21 @@ export default function HeroMedia() {
             <p className="text-xs text-neutral-500">
               Early Detection
             </p>
-
           </div>
-
         </div>
 
         {/* Floating Rating */}
 
         <div className="absolute right-4 top-4 hidden rounded-2xl bg-white/95 px-4 py-3 shadow-xl backdrop-blur lg:block">
-
           <div className="flex items-center gap-3">
-
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-100">
-
               <Star
                 size={18}
                 className="fill-yellow-500 text-yellow-500"
               />
-
             </div>
 
             <div>
-
               <p className="text-sm font-bold">
                 20K+
               </p>
@@ -145,15 +153,11 @@ export default function HeroMedia() {
               <p className="text-xs text-neutral-500">
                 Happy Patients
               </p>
-
             </div>
-
           </div>
-
         </div>
 
       </div>
-
     </div>
   );
 }

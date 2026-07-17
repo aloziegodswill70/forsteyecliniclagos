@@ -14,14 +14,14 @@ export default function HeroContent() {
       {/* ================= Mobile Hero Card ================= */}
 
       <div
-        className="mt-2 w-full max-w-full rounded-xl border bg-white px-4 py-4 shadow-md sm:hidden"
+        className="mt-2 w-full max-w-full rounded-xl border bg-white px-4 py-2.5 shadow-md sm:hidden"
         style={{
           borderColor: "#E0402A",
         }}
       >
         {/* Accent */}
 
-        <div className="mx-auto mb-3 h-1 w-16 rounded-full bg-primary" />
+        <div className="mx-auto mb-2 h-1 w-16 rounded-full bg-primary" />
 
         {/* Badge */}
 
@@ -47,7 +47,7 @@ export default function HeroContent() {
 
         {/* Heading */}
 
-        <h1 className="mt-3 text-lg font-extrabold leading-tight text-neutral-900">
+        <h1 className="mt-2 text-lg font-extrabold leading-tight text-neutral-900">
           <span className="animate-eyeGlow">
             Protect Your Eyes
           </span>
@@ -59,11 +59,11 @@ export default function HeroContent() {
 
         {/* Services */}
 
-        <p className="mx-auto mt-2 max-w-full text-[11px] font-medium leading-5 text-neutral-600 break-words">
+        <p className="mx-auto mt-1.5 max-w-full text-[11px] font-medium leading-5 text-neutral-600 break-words">
           Eye Examinations • Managements • Premium Optical Services
         </p>
 
-        <p className="mt-2 text-[9px] leading-4 tracking-wide text-neutral-500">
+        <p className="mt-1 text-[9px] leading-4 tracking-wide text-neutral-500">
           Professional • Affordable • Trusted Across Lagos
         </p>
       </div>
