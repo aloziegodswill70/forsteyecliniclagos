@@ -7,17 +7,14 @@ import HeroBottom from "./HeroBottomBar";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-white via-orange-50/40 to-white">
-
       {/* ================= Background Decoration ================= */}
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-
         <div className="absolute -left-20 -top-20 h-56 w-56 rounded-full bg-primary/10 blur-3xl sm:h-72 sm:w-72 lg:h-80 lg:w-80" />
 
         <div className="absolute -right-20 top-1/3 h-64 w-64 rounded-full bg-secondary/10 blur-3xl sm:h-80 sm:w-80 lg:h-96 lg:w-96" />
 
         <div className="absolute bottom-0 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-primary/5 blur-3xl sm:h-60 sm:w-60 lg:h-72 lg:w-72" />
-
       </div>
 
       {/* ================= Hero ================= */}
@@ -28,39 +25,37 @@ export default function Hero() {
           className="
             grid
             grid-cols-1
-            items-start
+            items-center
             gap-5
             sm:gap-6
             md:gap-8
-            lg:grid-cols-2
-            lg:items-center
-            lg:gap-10
-            xl:gap-14
+
+            lg:grid-cols-[58%_42%]
+            lg:gap-8
+
+            xl:grid-cols-[60%_40%]
+            xl:gap-10
           "
         >
-
-          {/* Left */}
+          {/* ================= Left ================= */}
 
           <div className="min-w-0">
             <HeroContent />
           </div>
 
-          {/* Right */}
+          {/* ================= Right ================= */}
 
-          <div className="min-w-0 w-full flex justify-center lg:justify-end">
+          <div className="min-w-0 lg:pl-6 xl:pl-10">
             <HeroMedia />
           </div>
-
         </div>
 
-        {/* Bottom */}
+        {/* ================= Bottom ================= */}
 
         <div className="mt-6 sm:mt-8 lg:mt-12">
           <HeroBottom />
         </div>
-
       </div>
-
     </section>
   );
 }

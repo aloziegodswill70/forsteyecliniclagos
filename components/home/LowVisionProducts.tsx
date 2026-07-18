@@ -15,11 +15,11 @@ export default function LowVisionProducts() {
     <section className="bg-white py-12 md:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
+        {/* ================= Header ================= */}
 
-        <div className="mx-auto mb-10 max-w-2xl text-center">
+        <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
 
-          <span className="inline-flex rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-semibold text-primary sm:text-sm">
+          <span className="inline-flex rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 text-[10px] font-semibold text-primary sm:px-4 sm:py-2 sm:text-sm">
             FORST Eye Clinic Low Vision Centre
           </span>
 
@@ -30,37 +30,88 @@ export default function LowVisionProducts() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-neutral-600 sm:text-base">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-neutral-600 sm:text-base">
             Explore our professionally selected collection of magnifiers,
             electronic video magnifiers, telescopes, reading aids and
-            assistive devices that help people with low vision enjoy greater
-            independence.
+            assistive devices that help people with low vision regain
+            independence in everyday life.
           </p>
 
         </div>
 
-        {/* Featured Products */}
+        {/* ================= Mobile ================= */}
 
-        <div className="grid justify-center gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        <div
+          className="
+            flex
+            gap-3
+            overflow-x-auto
+            scroll-smooth
+            snap-x
+            snap-mandatory
+            pb-2
+            sm:hidden
+            [-ms-overflow-style:none]
+            [scrollbar-width:none]
+            [&::-webkit-scrollbar]:hidden
+          "
+        >
+          {featuredProducts.map((product) => (
+            <div
+              key={product.id}
+              className="
+                snap-start
+                shrink-0
+                w-[185px]
+              "
+            >
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </div>
+
+        {/* ================= Tablet/Desktop ================= */}
+
+        <div className="hidden gap-5 sm:grid sm:grid-cols-2 xl:grid-cols-3">
 
           {featuredProducts.map((product) => (
-            <div key={product.id} className="mx-auto w-full max-w-sm">
+            <div
+              key={product.id}
+              className="mx-auto w-full max-w-sm"
+            >
               <ProductCard product={product} />
             </div>
           ))}
 
         </div>
 
-        {/* CTA */}
+        {/* ================= CTA ================= */}
 
         <div className="mt-10 flex justify-center">
 
           <Link
             href="/low-vision-store"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            className="
+              inline-flex
+              items-center
+              gap-2
+              rounded-full
+              bg-primary
+              px-6
+              py-3
+              text-sm
+              font-semibold
+              text-white
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:shadow-lg
+            "
           >
             Browse Complete Catalogue
+
             <ArrowRight size={16} />
+
           </Link>
 
         </div>
