@@ -88,8 +88,6 @@ export default function LowVisionStorePage() {
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 
-          {/* Search */}
-
           <div className="relative">
 
             <Search
@@ -118,8 +116,6 @@ export default function LowVisionStorePage() {
             />
 
           </div>
-
-          {/* Categories */}
 
           <div
             className="
@@ -177,38 +173,22 @@ export default function LowVisionStorePage() {
 
           </div>
 
-          {/* Mobile Reel Layout */}
+          {/* ================= Mobile ================= */}
 
-          <div
-            className="
-              flex
-              gap-3
-              overflow-x-auto
-              pb-2
-              sm:hidden
-              scroll-smooth
-              snap-x
-              snap-mandatory
-              [-ms-overflow-style:none]
-              [scrollbar-width:none]
-              [&::-webkit-scrollbar]:hidden
-            "
-          >
+          <div className="grid grid-cols-2 gap-3 sm:hidden">
 
             {filteredProducts.map((product) => (
 
-              <div
+              <ProductCard
                 key={product.id}
-                className="w-[185px] shrink-0 snap-start"
-              >
-                <ProductCard product={product} />
-              </div>
+                product={product}
+              />
 
             ))}
 
           </div>
 
-          {/* Desktop Grid */}
+          {/* ================= Tablet/Desktop ================= */}
 
           <div className="hidden gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
@@ -223,7 +203,7 @@ export default function LowVisionStorePage() {
 
           </div>
 
-          {/* Empty */}
+          {/* ================= Empty State ================= */}
 
           {filteredProducts.length === 0 && (
 

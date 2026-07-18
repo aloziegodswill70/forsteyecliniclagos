@@ -41,33 +41,15 @@ export default function LowVisionProducts() {
 
         {/* ================= Mobile ================= */}
 
-        <div
-          className="
-            flex
-            gap-3
-            overflow-x-auto
-            scroll-smooth
-            snap-x
-            snap-mandatory
-            pb-2
-            sm:hidden
-            [-ms-overflow-style:none]
-            [scrollbar-width:none]
-            [&::-webkit-scrollbar]:hidden
-          "
-        >
+        <div className="grid grid-cols-2 gap-3 sm:hidden">
+
           {featuredProducts.map((product) => (
-            <div
+            <ProductCard
               key={product.id}
-              className="
-                snap-start
-                shrink-0
-                w-[185px]
-              "
-            >
-              <ProductCard product={product} />
-            </div>
+              product={product}
+            />
           ))}
+
         </div>
 
         {/* ================= Tablet/Desktop ================= */}
