@@ -24,7 +24,7 @@ const quickLinks = [
   { name: "Eye Conditions", href: "/conditions" },
   { name: "Services", href: "/services" },
   { name: "Branches", href: "/branches" },
-  { name: "HMO Partners", href: "/hmo-partners" },
+  { name: "HMO Partners", href: "/hmo" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];

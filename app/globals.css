@@ -219,3 +219,25 @@
     padding-inline: 2.5rem;
   }
 }
+/* ==========================================
+   HMO Ticker
+========================================== */
+
+@keyframes hmoTicker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-hmoTicker {
+  animation: hmoTicker 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-hmoTicker:hover {
+  animation-play-state: paused;
+}

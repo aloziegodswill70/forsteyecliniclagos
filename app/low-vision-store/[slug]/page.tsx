@@ -13,9 +13,9 @@ import { lowVisionProducts } from "@/data/products/lowVisionProducts";
 const WHATSAPP = "2348033435554";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
@@ -24,11 +24,13 @@ export function generateStaticParams() {
   }));
 }
 
-export default function LowVisionProductPage({
+export default async function LowVisionProductPage({
   params,
 }: PageProps) {
+  const { slug } = await params;
+
   const product = lowVisionProducts.find(
-    (item) => item.slug === params.slug
+    (item) => item.slug === slug
   );
 
   if (!product) {
@@ -77,7 +79,7 @@ Thank you.`
                 alt={product.name}
                 fill
                 priority
-                sizes="(max-width:768px)100vw,50vw"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain p-8"
               />
             </div>

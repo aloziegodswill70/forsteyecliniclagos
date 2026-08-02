@@ -6,11 +6,11 @@ import HeroActions from "./HeroActions";
 import HeroStats from "./HeroStats";
 import HeroSocials from "./HeroSocials";
 import HeroReels from "./HeroReels";
+import HmoTicker from "./HmoTicker";
 
 export default function HeroContent() {
   return (
-    <section className="mx-auto flex w-full max-w-3xl flex-col items-center px-4 sm:px-5 text-center">
-
+    <section className="mx-auto flex w-full max-w-3xl flex-col items-center px-4 text-center sm:px-5">
       {/* ================= Mobile Hero Card ================= */}
 
       <div
@@ -59,19 +59,24 @@ export default function HeroContent() {
 
         {/* Services */}
 
-        <p className="mx-auto mt-1.5 max-w-full text-[11px] font-medium leading-5 text-neutral-600 break-words">
+        <p className="mx-auto mt-1.5 max-w-full break-words text-[11px] font-medium leading-5 text-neutral-600">
           Eye Examinations • Managements • Premium Optical Services
         </p>
 
         <p className="mt-1 text-[9px] leading-4 tracking-wide text-neutral-500">
           Professional • Affordable • Trusted Across Lagos
         </p>
+
+        {/* ================= HMO Partners ================= */}
+
+        <div className="mt-1.5">
+          <HmoTicker />
+        </div>
       </div>
 
       {/* ================= Desktop ================= */}
 
       <div className="hidden w-full sm:block">
-
         <div
           className="inline-flex items-center gap-2 rounded-full border px-3 py-1.5"
           style={{
@@ -110,6 +115,11 @@ export default function HeroContent() {
           Professional • Affordable • Trusted Across Lagos
         </p>
 
+        {/* ================= HMO Partners ================= */}
+
+        <div className="mt-2">
+          <HmoTicker />
+        </div>
       </div>
 
       {/* ================= Hero Reels ================= */}
@@ -135,7 +145,6 @@ export default function HeroContent() {
       <div className="mt-5 w-full">
         <HeroSocials />
       </div>
-
     </section>
   );
 }
