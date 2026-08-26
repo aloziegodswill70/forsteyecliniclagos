@@ -1,10 +1,10 @@
 "use client";
 
 const videos = [
-  "/videos/hero.mp4",
   "/videos/eyetest1.mp4",
   "/videos/frames.mp4",
   "/videos/fec1.mp4",
+   "/videos/hero.mp4",
 ];
 
 export default function HeroReels() {

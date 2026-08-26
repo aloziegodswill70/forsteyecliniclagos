@@ -8,9 +8,8 @@ import {
   BriefcaseMedical,
   MapPin,
   CalendarDays,
+  Info,
 } from "lucide-react";
-
-import { FaWhatsapp } from "react-icons/fa";
 
 import { clinicInfo } from "@/data/navigation";
 
@@ -162,22 +161,37 @@ export default function BottomNav() {
           </span>
         </Link>
 
-        {/* WhatsApp */}
+        {/* About */}
 
         <Link
-          href={clinicInfo.whatsapp}
-          target="_blank"
+          href="/about"
           className="flex flex-1 flex-col items-center justify-center"
         >
-          <div className="rounded-full bg-green-50 p-2">
-            <FaWhatsapp
+          <div
+            className={`rounded-full p-2 ${
+              isActive("/about")
+                ? "bg-[#FF3B1F]/10"
+                : "bg-neutral-50"
+            }`}
+          >
+            <Info
               size={20}
-              className="text-[#25D366]"
+              className={
+                isActive("/about")
+                  ? "text-[#FF3B1F]"
+                  : "text-neutral-500"
+              }
             />
           </div>
 
-          <span className="mt-1 text-[10px] font-semibold text-neutral-600">
-            WhatsApp
+          <span
+            className={`mt-1 text-[10px] font-semibold ${
+              isActive("/about")
+                ? "text-[#FF3B1F]"
+                : "text-neutral-600"
+            }`}
+          >
+            About
           </span>
         </Link>
 

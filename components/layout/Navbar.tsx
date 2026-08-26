@@ -121,7 +121,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(true)}
               aria-label="Open Menu"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-200 bg-white transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white sm:h-10 sm:w-10"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-200 bg-[#FCA400] text-white transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white sm:h-10 sm:w-10"
             >
               <Menu
                 size={20}
