@@ -1,157 +1,179 @@
 "use client";
 
-import Link from "next/link";
-import {
-  Star,
-  ExternalLink,
-  CalendarDays,
-  Quote,
-} from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 
-export default function GoogleReviews() {
+const faqs = [
+  {
+    question: "What services does FORST Eye Clinic provide?",
+    answer:
+      "FORST Eye Clinic provides comprehensive eye examinations, glaucoma care, cataract evaluation, dry eye care, pediatric eye care, low vision services, digital lenses and optical services.",
+  },
+  {
+    question: "How often should I have an eye examination?",
+    answer:
+      "Regular eye examinations are important even when you have no obvious vision problems. The frequency depends on your age, eye health, medical history and risk factors. Our eye care professionals can recommend an appropriate examination schedule for you.",
+  },
+  {
+    question: "Do I need an appointment before visiting?",
+    answer:
+      "Appointments are recommended to help us provide you with the best possible care. You can book an appointment online or contact FORST Eye Clinic to arrange a convenient time.",
+  },
+  {
+    question: "Does FORST Eye Clinic accept HMO?",
+    answer:
+      "Yes. FORST Eye Clinic works with selected Health Maintenance Organizations (HMOs). HMO eligibility and covered services may vary depending on your health plan, so we recommend confirming your coverage before your visit.",
+  },
+  {
+    question: "Do you provide glaucoma screening and management?",
+    answer:
+      "Yes. We provide glaucoma assessment and management, including eye pressure measurement, optic nerve evaluation and other appropriate tests to help detect and monitor glaucoma.",
+  },
+  {
+    question: "Do you provide cataract care?",
+    answer:
+      "Yes. We assess patients with cataracts and provide appropriate eye care, monitoring and referral for surgical treatment when necessary.",
+  },
+  {
+    question: "Do you provide eye care for children?",
+    answer:
+      "Yes. We provide pediatric eye care and vision assessments to help identify and manage vision problems that may affect children's visual development and learning.",
+  },
+  {
+    question: "Do you provide prescription glasses and optical services?",
+    answer:
+      "Yes. Our optical services include prescription lenses, frames and other vision solutions. We also provide digital lens options for people who spend significant time using computers, phones and other digital devices.",
+  },
+  {
+    question: "Can I visit FORST Eye Clinic if I have blurred vision or eye pain?",
+    answer:
+      "Yes. Symptoms such as blurred vision, eye pain, redness, headaches, excessive tearing or difficulty seeing at night should not be ignored. A comprehensive eye examination can help identify the possible cause and determine the appropriate care.",
+  },
+];
+
+export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className="bg-white py-14 lg:py-20">
-      <div className="mx-auto max-w-6xl px-5">
+    <section className="bg-white py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
 
         {/* Header */}
 
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
 
-          <span className="inline-flex rounded-full border border-neutral-200 px-4 py-2 text-xs font-semibold text-primary">
-            Google Reviews
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#FCA400]/20 bg-[#FCA400]/10 px-5 py-2 text-sm font-semibold text-[#FCA400]">
+            <HelpCircle size={16} />
+            Frequently Asked Questions
           </span>
 
-          <h2 className="mt-4 text-2xl font-black leading-tight text-neutral-900 sm:text-3xl lg:text-4xl">
-            Trusted By Thousands
-            <span className="block text-neutral-700">
-              Of Happy Patients
+          <h2 className="mt-6 text-3xl font-black leading-tight text-neutral-900 md:text-5xl">
+            Questions About
+            <span className="block text-[#FCA400]">
+              Your Eye Care
             </span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-neutral-600 sm:text-base">
-            Patients recommend FORST Eye Clinic for comprehensive eye
-            examinations, glaucoma care, cataract evaluation, children's eye
-            care, diabetic eye screening and premium optical services.
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-neutral-600">
+            Find answers to some of the most common questions about our eye
+            care services, appointments, HMO coverage and optical services.
           </p>
 
         </div>
 
-        {/* Review Card */}
+        {/* FAQ List */}
 
-        <div className="mx-auto mt-10 max-w-4xl rounded-3xl border border-neutral-200 bg-white p-5 shadow-sm sm:p-7 lg:p-9">
+        <div className="mx-auto mt-12 max-w-4xl space-y-4">
 
-          {/* Quote */}
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
 
-          <div className="flex justify-center">
+            return (
+              <div
+                key={faq.question}
+                className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
+                  isOpen
+                    ? "border-[#FCA400]/40 shadow-md"
+                    : "border-neutral-200"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFAQ(index)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
+                >
+                  <span className="text-sm font-bold leading-6 text-neutral-900 sm:text-base">
+                    {faq.question}
+                  </span>
 
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-100">
+                  <span
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
+                      isOpen
+                        ? "bg-[#FCA400] text-white"
+                        : "bg-neutral-100 text-neutral-600"
+                    }`}
+                  >
+                    <ChevronDown
+                      size={18}
+                      className={`transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </span>
+                </button>
 
-              <Quote
-                size={22}
-                className="text-primary"
-              />
+                <div
+                  className={`grid transition-all duration-300 ${
+                    isOpen
+                      ? "grid-rows-[1fr] opacity-100"
+                      : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-5 pb-5 text-sm leading-7 text-neutral-600 sm:px-6">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
 
-            </div>
+        </div>
 
-          </div>
+        {/* Bottom CTA */}
 
-          {/* Stars */}
+        <div className="mx-auto mt-14 max-w-4xl rounded-3xl bg-[#FCA400] px-6 py-10 text-center sm:px-10">
 
-          <div className="mt-4 flex justify-center gap-1">
-
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                size={18}
-                fill="currentColor"
-                className="text-yellow-400"
-              />
-            ))}
-
-          </div>
-
-          <h3 className="mt-3 text-center text-4xl font-black text-neutral-900">
-            5.0
+          <h3 className="text-2xl font-black text-white md:text-3xl">
+            Still Have Questions?
           </h3>
 
-          <p className="mt-1 text-center text-sm font-semibold text-neutral-700">
-            Average Google Rating
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-white/90">
+            Our team is available to help you with questions about your eye
+            health, appointments, HMO coverage or optical services.
           </p>
 
-          <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-7 text-neutral-600">
-            Every review reflects our commitment to exceptional eye care,
-            modern technology and compassionate patient service.
-          </p>
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
 
-          {/* Stats */}
-
-          <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
-
-            {[
-              {
-                value: "20K+",
-                label: "Patients",
-              },
-              {
-                value: "6",
-                label: "Branches",
-              },
-              {
-                value: "60+",
-                label: "HMOs",
-              },
-              {
-                value: "15+",
-                label: "Services",
-              },
-            ].map((item) => (
-
-              <div
-                key={item.label}
-                className="rounded-2xl border border-neutral-200 p-4 text-center transition hover:shadow-md"
-              >
-
-                <h4 className="text-2xl font-black text-primary">
-                  {item.value}
-                </h4>
-
-                <p className="mt-1 text-xs text-neutral-500">
-                  {item.label}
-                </p>
-
-              </div>
-
-            ))}
-
-          </div>
-
-          {/* Buttons */}
-
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-
-            <Link
-              href="https://g.page/r/CQXXXXXXXXXX/review"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full max-w-xs items-center justify-center gap-2 rounded-xl border border-neutral-300 px-5 py-3 text-sm font-semibold text-neutral-800 transition hover:border-primary hover:text-primary sm:w-auto"
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[#FCA400] transition hover:-translate-y-1 hover:shadow-lg"
             >
+              Contact Us
+            </a>
 
-              View Reviews
-
-              <ExternalLink size={16} />
-
-            </Link>
-
-            <Link
+            <a
               href="/book-eye-appointment"
-              className="inline-flex w-full max-w-xs items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90 sm:w-auto"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-white px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#FCA400]"
             >
-
-              <CalendarDays size={17} />
-
               Book Appointment
-
-            </Link>
+            </a>
 
           </div>
 

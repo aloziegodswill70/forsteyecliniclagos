@@ -10,7 +10,9 @@ import {
   Baby,
   Activity,
   ArrowRight,
+  ChevronDown,
 } from "lucide-react";
+import { useState } from "react";
 
 const conditions = [
   {
@@ -52,6 +54,8 @@ const conditions = [
 ];
 
 export default function Conditions() {
+  const [showOthers, setShowOthers] = useState(false);
+
   return (
     <section className="bg-neutral-50 py-20">
       <div className="mx-auto max-w-7xl px-5">
@@ -69,8 +73,8 @@ export default function Conditions() {
           </h2>
 
           <p className="mt-5 text-lg leading-8 text-neutral-600">
-            Routine eye examinations help detect eye diseases before
-            permanent vision loss occurs.
+            We manage common eye conditions including glaucoma, cataract,
+            diabetic eye disease, dry eye and other vision-related conditions.
           </p>
 
         </div>
@@ -149,7 +153,7 @@ export default function Conditions() {
 
         </div>
 
-        {/* Conditions */}
+        {/* Conditions We Manage */}
 
         <div className="mt-20">
 
@@ -159,11 +163,18 @@ export default function Conditions() {
               Conditions We Manage
             </h3>
 
+            <p className="mx-auto mt-4 max-w-2xl text-neutral-600">
+              We provide assessment and management for a wide range of
+              common eye conditions.
+            </p>
+
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Main Conditions */}
 
-            {conditions.map((condition) => {
+          <div className="grid gap-6 sm:grid-cols-2">
+
+            {conditions.slice(0, 2).map((condition) => {
               const Icon = condition.icon;
 
               return (
@@ -174,9 +185,7 @@ export default function Conditions() {
                 >
 
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-
                     <Icon size={28} />
-
                   </div>
 
                   <h4 className="mt-6 text-xl font-bold">
@@ -188,11 +197,8 @@ export default function Conditions() {
                   </p>
 
                   <div className="mt-6 inline-flex items-center gap-2 font-semibold text-primary">
-
                     Learn More
-
                     <ArrowRight size={18} />
-
                   </div>
 
                 </Link>
@@ -201,49 +207,107 @@ export default function Conditions() {
 
           </div>
 
+          {/* View Other Conditions */}
+
+          <div className="mt-8 text-center">
+
+            <button
+              type="button"
+              onClick={() => setShowOthers(!showOthers)}
+              className="inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"
+            >
+              {showOthers
+                ? "Hide Other Conditions"
+                : "View Other Conditions"}
+
+              <ChevronDown
+                size={18}
+                className={`transition-transform ${
+                  showOthers ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+          </div>
+
+          {/* Other Conditions */}
+
+          {showOthers && (
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+              {conditions.slice(2).map((condition) => {
+                const Icon = condition.icon;
+
+                return (
+                  <Link
+                    key={condition.title}
+                    href={condition.href}
+                    className="group rounded-3xl bg-white p-6 shadow-sm transition hover:-translate-y-2 hover:shadow-xl"
+                  >
+
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                      <Icon size={24} />
+                    </div>
+
+                    <h4 className="mt-5 text-lg font-bold">
+                      {condition.title}
+                    </h4>
+
+                    <p className="mt-3 text-sm leading-6 text-neutral-600">
+                      {condition.description}
+                    </p>
+
+                    <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                      Learn More
+                      <ArrowRight size={16} />
+                    </div>
+
+                  </Link>
+                );
+              })}
+
+            </div>
+          )}
+
         </div>
 
         {/* CTA */}
 
+        
         <div
-          className="mt-20 rounded-[32px] px-8 py-14 text-center text-white"
-          style={{
-            background:
-              "linear-gradient(135deg,#FF5A34 0%,#FF3B1F 55%,#D92E12 100%)",
-            boxShadow:
-              "0 14px 34px rgba(255,59,31,.35)",
-          }}
-        >
+  className="mt-20 rounded-[32px] bg-[#FCA400] px-8 py-14 text-center text-white"
+  style={{
+    boxShadow: "0 14px 34px rgba(252,164,0,.35)",
+  }}
+>
+  <h3 className="text-4xl font-black">
+    Protect Your Vision Today
+  </h3>
 
-          <h3 className="text-4xl font-black">
-            Protect Your Vision Today
-          </h3>
+  <p className="mx-auto mt-5 max-w-3xl leading-8 text-white/90">
+    Blurred vision, eye pain, headaches or redness should never
+    be ignored. Schedule a comprehensive eye examination with
+    our experienced eye care professionals.
+  </p>
 
-          <p className="mx-auto mt-5 max-w-3xl leading-8 text-white/90">
-            Blurred vision, eye pain, headaches or redness should never
-            be ignored. Schedule a comprehensive eye examination with
-            our experienced eye care professionals.
-          </p>
+  <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
 
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+    <Link
+      href="/book-eye-appointment"
+      className="rounded-xl bg-white px-8 py-4 font-semibold text-[#FCA400] transition hover:scale-105"
+    >
+      Book Appointment
+    </Link>
 
-            <Link
-              href="/book-eye-appointment"
-              className="rounded-xl bg-white px-8 py-4 font-semibold text-primary transition hover:scale-105"
-            >
-              Book Appointment
-            </Link>
+    <Link
+      href="/contact"
+      className="rounded-xl border-2 border-white px-8 py-4 font-semibold text-white transition hover:scale-105 hover:bg-white hover:text-[#FCA400]"
+    >
+      Contact Us
+    </Link>
 
-            <Link
-              href="/contact"
-              className="rounded-xl border-2 border-white px-8 py-4 font-semibold transition hover:bg-white hover:text-primary"
-            >
-              Contact Us
-            </Link>
-
-          </div>
-
-        </div>
+  </div>
+</div>
 
       </div>
     </section>

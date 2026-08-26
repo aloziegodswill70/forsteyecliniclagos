@@ -80,6 +80,7 @@ export default function BookAppointmentPage() {
         <section className="pb-20">
           <div className="container-site">
             <div className="grid gap-8 lg:grid-cols-3">
+
               {/* Call */}
 
               <div className="rounded-[32px] border border-neutral-200 bg-white p-8 text-center shadow-sm">
@@ -161,6 +162,7 @@ export default function BookAppointmentPage() {
                   Appointment Form
                 </a>
               </div>
+
             </div>
 
             {/* Appointment Form */}
@@ -205,8 +207,9 @@ export default function BookAppointmentPage() {
 
             {/* Contact */}
 
-            <div className="mt-20 rounded-[36px] bg-primary p-10 text-white">
+            <div className="mt-20 rounded-[36px] bg-[#FCA400] p-10 text-white">
               <div className="grid gap-10 lg:grid-cols-3">
+
                 <div>
                   <Clock size={32} />
 
@@ -215,9 +218,9 @@ export default function BookAppointmentPage() {
                   </h3>
 
                   <p className="mt-3">
-                    Monday – Saturday
+                    Monday – Friday
                     <br />
-                    8:00 AM – 6:00 PM
+                    9:00 AM – 6:00 PM
                   </p>
                 </div>
 
@@ -258,14 +261,16 @@ export default function BookAppointmentPage() {
                     href={`https://wa.me/${WHATSAPP}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-primary"
+                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-[#FCA400]"
                   >
                     <MessageCircle size={18} />
                     Chat on WhatsApp
                   </a>
                 </div>
+
               </div>
             </div>
+
           </div>
         </section>
       </main>

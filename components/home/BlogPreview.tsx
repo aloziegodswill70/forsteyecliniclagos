@@ -160,13 +160,13 @@ export default function Conditions() {
 
         {/* Bottom CTA */}
 
-        <div className="mx-auto mt-20 max-w-5xl rounded-[30px] border border-neutral-200 bg-neutral-50 p-8 text-center lg:p-12">
+        <div className="mx-auto mt-20 max-w-5xl rounded-[30px] bg-[#FCA400] p-8 text-center lg:p-12">
 
-          <h3 className="text-3xl font-bold text-neutral-900">
+          <h3 className="text-3xl font-bold text-white">
             Don't Ignore Changes In Your Vision
           </h3>
 
-          <p className="mx-auto mt-5 max-w-3xl leading-8 text-neutral-600">
+          <p className="mx-auto mt-5 max-w-3xl leading-8 text-white/90">
             Blurred vision, eye pain, headaches, excessive tearing or poor
             night vision could be signs of an underlying eye condition.
             Schedule a comprehensive eye examination today for early diagnosis
@@ -177,14 +177,14 @@ export default function Conditions() {
 
             <Link
               href="/book-eye-appointment"
-              className="inline-flex items-center justify-center rounded-xl bg-neutral-900 px-8 py-4 font-semibold text-white transition hover:bg-neutral-800"
+              className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 font-semibold text-[#FCA400] transition hover:scale-105"
             >
               Book Appointment
             </Link>
 
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-xl border border-neutral-300 px-8 py-4 font-semibold text-neutral-800 transition hover:border-primary hover:text-primary"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-white px-8 py-4 font-semibold text-white transition hover:bg-white hover:text-[#FCA400]"
             >
               Contact Us
             </Link>

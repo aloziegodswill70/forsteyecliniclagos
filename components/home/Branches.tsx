@@ -14,339 +14,186 @@ import {
 import { branches } from "@/data/branches";
 
 export default function Branches() {
+  // Only show Ogba / Head Branch on homepage
+  const headBranch =
+    branches.find(
+      (branch) =>
+        branch.slug === "ogba" ||
+        branch.name.toLowerCase().includes("ogba")
+    ) || branches[0];
+
+  if (!headBranch) return null;
+
   return (
-    <section className="bg-white py-16 lg:py-24 overflow-hidden">
-      <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+    <section className="overflow-hidden bg-white py-14 sm:py-16 lg:py-20">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* ================= Header ================= */}
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{
-            duration: 0.7,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-10 max-w-3xl text-center sm:mb-12"
         >
-          <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary">
-            Our Clinics
+          <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary sm:text-sm">
+            Our Head Branch
           </span>
 
-          <h2 className="mt-5 text-3xl font-black leading-tight text-neutral-900 md:text-4xl">
-            Visit Any
+          <h2 className="mt-4 text-2xl font-black leading-tight text-neutral-900 sm:text-3xl lg:text-4xl">
+            Visit FORST EYE CLINIC
             <span className="block text-primary">
-              FORST EYE CLINIC Branch
+              Ogba Head Branch
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl leading-8 text-neutral-600">
-            Quality eye care is always within reach. Every branch is equipped
-            with modern diagnostic technology and experienced professionals
-            dedicated to protecting your vision.
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-neutral-600 sm:text-base">
+            Our Ogba head branch provides comprehensive eye care,
+            modern diagnostic services and professional optical care
+            for individuals and families across Lagos.
           </p>
         </motion.div>
 
-        {/* ================= Branches ================= */}
+        {/* ================= Head Branch ================= */}
 
-        <div className="space-y-12">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm"
+        >
+          <div className="grid lg:grid-cols-2">
 
-          {branches.map((branch, index) => (
+            {/* Image */}
 
-            <motion.div
-              key={branch.slug}
-              initial={{ opacity: 0, y: 70 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="overflow-hidden rounded-[32px] border border-neutral-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
-            >
-              <div className="grid items-center lg:grid-cols-2">
+            <div className="relative h-64 sm:h-80 lg:h-full lg:min-h-[420px]">
+              <Image
+                src={headBranch.image}
+                alt={`${headBranch.name} - FORST Eye Clinic`}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
 
-                {/* ================= Image ================= */}
+              <div className="absolute left-4 top-4 rounded-full bg-primary px-4 py-2 text-xs font-bold text-white shadow-lg">
+                Head Branch
+              </div>
+            </div>
 
-                <div className="relative h-64 overflow-hidden md:h-80 lg:h-full lg:min-h-[430px]">
+            {/* Content */}
 
-                  <Image
-                    src={branch.image}
-                    alt={branch.name}
-                    fill
-                    className="object-cover transition duration-700 hover:scale-105"
-                    priority={index === 0}
-                  />
+            <div className="p-6 sm:p-8 lg:p-10">
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+              <h3 className="text-2xl font-black text-neutral-900 sm:text-3xl">
+                {headBranch.name}
+              </h3>
 
+              {/* Address */}
+
+              <div className="mt-7 flex items-start gap-3">
+                <MapPin className="mt-1 shrink-0 text-primary" size={20} />
+
+                <div>
+                  <p className="font-semibold text-neutral-900">
+                    Address
+                  </p>
+
+                  <p className="mt-1 text-sm leading-6 text-neutral-600">
+                    {headBranch.address}
+                  </p>
                 </div>
+              </div>
 
-                {/* ================= Content ================= */}
+              {/* Phone */}
 
-                <div className="flex h-full flex-col justify-center p-6 md:p-8 lg:p-10">
+              <div className="mt-5 flex items-start gap-3">
+                <Phone className="mt-1 shrink-0 text-primary" size={20} />
 
-                  <span className="inline-flex w-fit rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-                    Eye Care Branch
-                  </span>
+                <div>
+                  <p className="font-semibold text-neutral-900">
+                    Telephone
+                  </p>
 
-                  <h3 className="mt-5 text-3xl font-black text-neutral-900">
-                    {branch.name}
-                  </h3>
+                  <a
+                    href={`tel:${headBranch.phone}`}
+                    className="mt-1 block text-sm text-neutral-600 hover:text-primary"
+                  >
+                    {headBranch.phone}
+                  </a>
+                </div>
+              </div>
 
-                  <div className="mt-8 space-y-6">
+              {/* Opening Hours */}
 
-                    <div className="flex items-start gap-4">
+              <div className="mt-5 flex items-start gap-3">
+                <Clock3 className="mt-1 shrink-0 text-primary" size={20} />
 
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                        <MapPin
-                          size={20}
-                          className="text-primary"
-                        />
-                      </div>
+                <div>
+                  <p className="font-semibold text-neutral-900">
+                    Opening Hours
+                  </p>
 
-                      <div>
+                  <div className="mt-1 text-sm leading-6 text-neutral-600">
+                    <p>
+                      Mon – Fri: {headBranch.openingHours.weekdays}
+                    </p>
 
-                        <p className="font-semibold text-neutral-900">
-                          Address
-                        </p>
+                    <p>
+                      Saturday: {headBranch.openingHours.saturday}
+                    </p>
 
-                        <p className="mt-1 leading-7 text-neutral-600">
-                          {branch.address}
-                        </p>
-
-                      </div>
-
-                    </div>
-
-                    <div className="flex items-start gap-4">
-
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                        <Phone
-                          size={20}
-                          className="text-primary"
-                        />
-                      </div>
-
-                      <div>
-
-                        <p className="font-semibold text-neutral-900">
-                          Telephone
-                        </p>
-
-                        <a
-                          href={`tel:${branch.phone}`}
-                          className="mt-1 block text-neutral-600 transition hover:text-primary"
-                        >
-                          {branch.phone}
-                        </a>
-
-                      </div>
-
-                    </div>
-
-                    <div className="flex items-start gap-4">
-
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                        <Clock3
-                          size={20}
-                          className="text-primary"
-                        />
-                      </div>
-
-                      <div>
-
-                        <p className="font-semibold text-neutral-900">
-                          Opening Hours
-                        </p>
-
-                        <div className="mt-1 space-y-1 text-neutral-600">
-
-                          <p>
-                            Mon – Fri: {branch.openingHours.weekdays}
-                          </p>
-
-                          <p>
-                            Saturday: {branch.openingHours.saturday}
-                          </p>
-
-                          <p>
-                            Sunday: {branch.openingHours.sunday}
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  {/* ================= Services ================= */}
-
-                  <div className="mt-8">
-
-                    <h4 className="mb-4 text-lg font-bold text-primary">
-                      Services Available
-                    </h4>
-
-                    <div className="flex flex-wrap gap-3">
-
-                      {branch.services.map((service) => (
-
-                        <span
-                          key={service}
-                          className="rounded-full border border-neutral-200 bg-neutral-50 px-4 py-2 text-sm font-medium text-neutral-700"
-                        >
-                          {service}
-                        </span>
-
-                      ))}
-
-                    </div>
-
-                  </div>
-
-                  {/* ================= Buttons ================= */}
-
-                  <div className="mt-10 flex flex-wrap gap-4">
-
-                    <Link
-                      href={`/branches/${branch.slug}`}
-                      className="btn-primary"
-                    >
-                      View Clinic
-                      <ArrowRight size={18} />
-                    </Link>
-
-                    <Link
-                      href={`tel:${branch.phone}`}
-                      className="btn-outline"
-                    >
-                      Call Clinic
-                    </Link>
-
-                    <Link
-                      href={branch.directionsUrl}
-                      target="_blank"
-                      className="btn-secondary"
-                    >
-                      <Navigation size={18} />
-                      Directions
-                    </Link>
-
+                    <p>
+                      Sunday: {headBranch.openingHours.sunday}
+                    </p>
                   </div>
                 </div>
               </div>
-                            {/* ================= Google Map ================= */}
 
-              {branch.mapEmbedUrl && (
-                <div className="border-t border-neutral-200 bg-neutral-50">
-                  <iframe
-                    src={branch.mapEmbedUrl}
-                    width="100%"
-                    height="320"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title={branch.name}
-                    className="w-full"
-                  />
-                </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
+              {/* Buttons */}
 
-        {/* ================= CTA ================= */}
+              <div className="mt-8 flex flex-wrap gap-3">
 
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.8,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="mx-auto mt-20 max-w-6xl overflow-hidden rounded-[36px] border border-neutral-200 bg-gradient-to-br from-white via-[#FFFDFB] to-[#FFF8F3] p-8 shadow-sm md:p-12 lg:p-16"
-        >
-          <div className="mx-auto max-w-3xl text-center">
+                <Link
+                  href={`/branches/${headBranch.slug}`}
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  View Head Branch
+                  <ArrowRight size={16} />
+                </Link>
 
-            <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary">
-              Book Your Visit
-            </span>
+                <Link
+                  href={headBranch.directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-5 py-3 text-sm font-semibold text-neutral-700 transition hover:border-primary hover:text-primary"
+                >
+                  <Navigation size={16} />
+                  Directions
+                </Link>
 
-            <h3 className="mt-6 text-3xl font-black leading-tight text-neutral-900 md:text-4xl">
-              Quality Eye Care
-              <span className="block text-primary">
-                Close To You
-              </span>
-            </h3>
-
-            <p className="mx-auto mt-5 max-w-2xl leading-8 text-neutral-600">
-              Whether you need a routine eye examination, glaucoma care,
-              cataract consultation, pediatric eye care, diabetic eye
-              screening, OCT imaging or premium optical services, our
-              experienced team is ready to help.
-            </p>
-
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-
-              <Link
-                href="/book-eye-appointment"
-                className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1"
-                style={{
-                  background:
-                    "linear-gradient(135deg,#FF5A34 0%,#FF3B1F 55%,#D92E12 100%)",
-                  boxShadow:
-                    "0 14px 34px rgba(255,59,31,.30)",
-                }}
-              >
-                Book Appointment
-
-                <ArrowRight size={18} />
-              </Link>
-
-              <Link
-                href="/branches"
-                className="inline-flex items-center rounded-full border border-neutral-300 px-8 py-4 font-semibold text-neutral-700 transition hover:border-primary hover:text-primary"
-              >
-                View All Branches
-              </Link>
-
+              </div>
             </div>
-
           </div>
         </motion.div>
 
-        {/* ================= SEO ================= */}
+        {/* ================= Other Branches ================= */}
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.7,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="mx-auto mt-16 max-w-6xl rounded-[30px] border border-neutral-200 bg-white p-8 shadow-sm lg:p-10"
-        >
-          <h3 className="text-2xl font-bold text-primary">
-            Professional Eye Care Across Lagos
-          </h3>
-
-          <p className="mt-5 leading-8 text-neutral-600">
-            FORST EYE CLINIC provides comprehensive eye care services across
-            Lagos through strategically located branches. Our clinics offer
-            comprehensive eye examinations, glaucoma management, cataract
-            evaluation, diabetic eye screening, dry eye treatment,
-            pediatric eye care, OCT imaging, prescription glasses,
-            contact lenses, low vision rehabilitation and complete
-            optical services using modern diagnostic technology and
-            experienced eye care professionals.
+        <div className="mt-8 text-center sm:mt-10">
+          <p className="mb-4 text-sm text-neutral-500">
+            We also have other FORST EYE CLINIC locations across Lagos.
           </p>
-        </motion.div>
+
+          <Link
+            href="/branches"
+            className="inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"
+          >
+            View Other Branches
+            <ArrowRight size={17} />
+          </Link>
+        </div>
 
       </div>
     </section>

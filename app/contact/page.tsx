@@ -101,7 +101,7 @@ export default function ContactPage() {
                 </h2>
 
                 <p className="mt-3 text-neutral-600">
-                  +234 800 000 0000
+                  +234 9033302385
                 </p>
               </div>
 
@@ -116,7 +116,7 @@ export default function ContactPage() {
                 </h2>
 
                 <p className="mt-3 text-neutral-600">
-                  info@forsteyeclinic.com
+                  forsteyeclinic@gmail.com
                 </p>
               </div>
 
@@ -131,9 +131,14 @@ export default function ContactPage() {
                 </h2>
 
                 <p className="mt-3 text-neutral-600">
-                  Mon - Sat
+                  Mon - Fri
                   <br />
-                  8:00 AM - 6:00 PM
+                  9:00 AM - 6:00 PM
+                </p>
+                   <p className="mt-3 text-neutral-600">
+                  Sat
+                  <br />
+                  9:00 AM - 3:00 PM
                 </p>
               </div>
 
@@ -231,7 +236,7 @@ export default function ContactPage() {
                   </p>
 
                   <a
-                    href="https://wa.me/2348000000000"
+                    href="https://wa.me/2348186992818"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary inline-flex items-center gap-2 mt-6"
